@@ -1,10 +1,14 @@
 package ck.rockman.utils;
 
 import ck.rockman.Procedure;
-
-import static org.junit.Assert.assertTrue;
+import org.junit.jupiter.api.Assertions;
 
 public class TestUtils {
+
+    private TestUtils() {
+        // hide public constructor
+    }
+
     public static void checkExpectedFailure(Procedure procedure, Class<? extends Exception> expectedException) {
         if (expectedException != null) {
             checkThatFails(procedure, expectedException);
@@ -16,9 +20,9 @@ public class TestUtils {
     private static void checkThatFails(Procedure procedure, Class<? extends Exception> expectedException) {
         try {
             procedure.process();
-            assertTrue("Procedure should fail", false);
+            Assertions.assertTrue(false, "Procedure should fail");
         } catch (Exception e) {
-            assertTrue(expectedException.isInstance(e));
+            Assertions.assertTrue(expectedException.isInstance(e));
         }
     }
 }

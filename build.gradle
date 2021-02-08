@@ -9,7 +9,18 @@ allprojects {
     }
 }
 
+ext {
+    junit5_version = '5.4.2'
+}
+
 dependencies {
-    compile group: 'junit', name: 'junit', version: '4.12'
-    testCompile group: 'junit', name: 'junit', version: '4.11'
+    implementation 'org.assertj:assertj-core:3.18.1'
+    implementation "org.junit.jupiter:junit-jupiter:${junit5_version}"
+    implementation "org.junit.jupiter:junit-jupiter-api:${junit5_version}"
+    runtimeOnly "org.junit.jupiter:junit-jupiter-engine:${junit5_version}"
+
+    testImplementation group: 'org.assertj', name: 'assertj-core', version: '3.18.1'
+    testImplementation "org.junit.jupiter:junit-jupiter:${junit5_version}"
+    testImplementation "org.junit.jupiter:junit-jupiter-api:${junit5_version}"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${junit5_version}"
 }

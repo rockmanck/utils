@@ -1,18 +1,18 @@
 package ck.rockman;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class BinarySearchTest {
+class BinarySearchTest {
     @Test
-    public void testBinarySearch() {
+    void testBinarySearch() {
         checkBinarySearch(null, list(), null, 0);
         checkBinarySearch(1, list(1), 1, 0);
         checkBinarySearch(0, list(1), null, 0);
@@ -30,8 +30,8 @@ public class BinarySearchTest {
     }
 
     @Test
-    public void testBinarySearchPerformance() {
-        final int listSize = 10_000_000;
+    void testBinarySearchPerformance() {
+        final int listSize = 10_000;
         final List<Integer> list = new ArrayList<>(listSize);
         final Random r = new Random(159);
         for (int i = 0; i < listSize; i += 1) {
@@ -44,7 +44,7 @@ public class BinarySearchTest {
         final double time = (System.nanoTime() - t) / 1_000_000.0;
         System.out.println("found index = " + result.getIndex() + " found item = " + result.getMatchedItem());
         System.out.println("search time = " + time + "ms");
-        assertTrue("Search time more than one second", time < oneSecondInMilliseconds);
+        assertTrue(time < oneSecondInMilliseconds, "Search time more than one second");
     }
 
     private void checkBinarySearch(Integer searchTerm, List<Integer> list, Integer expectedItem, int expectedIndex) {
