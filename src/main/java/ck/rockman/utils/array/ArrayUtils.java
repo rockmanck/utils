@@ -1,6 +1,4 @@
-package ck.rockman.utils;
-
-import ck.rockman.utils.array.Position;
+package ck.rockman.utils.array;
 
 public class ArrayUtils {
 

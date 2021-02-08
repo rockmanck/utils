@@ -1,6 +1,5 @@
-package ck.rockman.utils;
+package ck.rockman.utils.array;
 
-import ck.rockman.utils.array.Position;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
